@@ -1,10 +1,10 @@
-def read_plates() -> [[]]:
+def read_plates() -> [[str]]:
     with open('ijones.in', 'r') as in_file:
         _ = in_file.readline()
         return [[plate for plate in line if plate != '\n'] for line in in_file]
 
 
-def get_paths(matrix):
+def get_paths(matrix) -> int:
     result = 0
     lines = len(matrix)
     columns = len(matrix[1])
@@ -14,7 +14,7 @@ def get_paths(matrix):
     return result
 
 
-def get_paths_to_end(last_line_index, last_column_index, matrix):
+def get_paths_to_end(last_line_index, last_column_index, matrix) -> int:
     if not last_column_index:
         return 1
     else:
@@ -31,7 +31,7 @@ def get_paths_to_end(last_line_index, last_column_index, matrix):
         return result
 
 
-def write_to_file(result):
+def write_to_file(result) -> None:
     with open('ijones.out', 'w') as out_file:
         out_file.write(str(result))
 
